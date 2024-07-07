@@ -1,8 +1,42 @@
+body{
+  display: flex;
+  justify-content: center;
+}
+
 #container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   border: 2px black solid;
   border-radius: 5px;
-  width : 40vw;
   height: 80vh;
+  aspect-ratio: 2/3;
+}
+
+#display {
+  display: flex;
+  align-items: center;
+  flex: 1 0 auto;
+  font-size: 30px;
+}
+
+#button-container {
+  display: flex;
+  flex: 3;
+  align-items: center;
+  gap: 50px;
+}
+
+button {
+  font-size: 20px;
+  padding: 25px;
+}
+
+#number-container {
+  padding: 0;
+}
+
+#operator-container {
+  display: flex;
+  flex-direction: column;
 }
