@@ -41,15 +41,32 @@ function operate(num1, num2, operator) {
 }
 
 const buttonContainer = document.querySelector("#button-container");
-
 const display = document.querySelector("#display");
+
 buttonContainer.addEventListener("click", (e) => {
 
   if (e.target.textContent == "Clear") {
     display.textContent = ""
   } 
+  else if (e.target.textContent == "=") {
+    calculate(display.textContent);
+  }
   else {
   display.textContent += e.target.textContent;
   }
+});
 
-})
+const operators = "+-/*";
+function calculate(displayVal) {
+  const opIndex = displayVal.split('').findIndex(c => displayVal.includes(operators));
+  const operator = displayVal[opIndex];
+  const nums = displayVal.split(operator);
+  const num1 = parseInt(nums[0]);
+  const num2 = parseInt(nums[1]);
+  console.log(`num1: ${num1}, num2: ${num2}, operator: ${operator}`);
+  console.log(opIndex);
+  
+  const result = operate(num1, num2, operator);
+  display.textContent = result;
+}
+
