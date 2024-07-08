@@ -16,7 +16,7 @@ body{
 #display {
   display: flex;
   align-items: center;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   font-size: 30px;
 }
 

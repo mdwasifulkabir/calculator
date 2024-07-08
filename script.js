@@ -21,19 +21,19 @@ function operate(num1, num2, operator) {
   let result;
   switch (operator) {
     case "+":
-      res = add(num1, num2);
+      result = add(num1, num2);
       break;
 
     case "-":
-      res = subtract(num1, num2);
+      result = subtract(num1, num2);
       break; 
     
     case "*":
-      res = multiply(num1, num2);
+      result = multiply(num1, num2);
       break;
 
     case "/":
-      res = divide(num1, num2);
+      result = divide(num1, num2);
       break;
   }
   
@@ -58,15 +58,15 @@ buttonContainer.addEventListener("click", (e) => {
 
 const operators = "+-/*";
 function calculate(displayVal) {
-  const opIndex = displayVal.split('').findIndex(c => displayVal.includes(operators));
+  const opIndex = displayVal.split('').findIndex(c => operators.includes(c));
   const operator = displayVal[opIndex];
   const nums = displayVal.split(operator);
   const num1 = parseInt(nums[0]);
   const num2 = parseInt(nums[1]);
   console.log(`num1: ${num1}, num2: ${num2}, operator: ${operator}`);
-  console.log(opIndex);
   
   const result = operate(num1, num2, operator);
+  console.log(`result: ${result}`);
   display.textContent = result;
 }
 
