@@ -39,3 +39,17 @@ function operate(num1, num2, operator) {
   
   return result;
 }
+
+const buttonContainer = document.querySelector("#button-container");
+
+const display = document.querySelector("#display");
+buttonContainer.addEventListener("click", (e) => {
+
+  if (e.target.textContent == "Clear") {
+    display.textContent = ""
+  } 
+  else {
+  display.textContent += e.target.textContent;
+  }
+
+})
