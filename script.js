@@ -68,11 +68,11 @@ operatorContainer.addEventListener("click", (e) => {
         calculate(display.textContent);
         display.textContent += keyText;
       }
-      else {
+      else if(display.textContent != "") {
         display.textContent += keyText;
       }
   }
-})
+});
 
 function calculate(displayVal) {
   const opIndex = displayVal.split('').findIndex(c => operators.includes(c));
@@ -85,7 +85,7 @@ function calculate(displayVal) {
   if(result % 1 !== 0) {
     display.textContent = result.toFixed(11);
   } 
-  else {
+  else { 
   display.textContent = result;
   }
 }
