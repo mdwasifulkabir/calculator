@@ -56,10 +56,13 @@ operatorContainer.addEventListener("click", (e) => {
     case "Clear":
       display.textContent = "";
       break;
+
     case "=":
       calculate(display.textContent);
       break;
+
     default:
+      //check if display already has a operator and if it does calculate that first
       const hasOperator = display.textContent.split('').find(c => operators.includes(c));
       if(hasOperator) {
         calculate(display.textContent);
@@ -79,6 +82,10 @@ function calculate(displayVal) {
   const num2 = parseInt(nums[1]);
   
   const result = operate(num1, num2, operator);
+  if(result % 1 !== 0) {
+    display.textContent = result.toFixed(11);
+  } 
+  else {
   display.textContent = result;
+  }
 }
-
