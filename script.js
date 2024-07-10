@@ -46,7 +46,11 @@ const operatorContainer = document.querySelector("#operator-container");
 const display = document.querySelector("#display");
 
 numberContainer.addEventListener("click", (e) => {
-  display.textContent += e.target.textContent;
+  const keyText = e.target.textContent;
+  if (keyText === '.'){
+    if (display.textContent.includes('.')) return;
+  }
+  display.textContent += keyText;
 });
 
 operatorContainer.addEventListener("click", (e) => {
