@@ -64,11 +64,13 @@ operatorContainer.addEventListener("click", (e) => {
     default:
       //check if display already has a operator and if it does calculate that first
       const hasOperator = display.textContent.split('').find(c => operators.includes(c));
-      if(hasOperator) {
+      //check if the last character is an operator
+      const isLastOp = operators.includes(display.textContent.at(-1));
+
+      if(hasOperator && !isLastOp) {
         calculate(display.textContent);
         display.textContent += keyText;
-      }
-      else if(display.textContent != "") {
+      } else if(display.textContent != "" && !isLastOp) {
         display.textContent += keyText;
       }
   }
@@ -78,14 +80,14 @@ function calculate(displayVal) {
   const opIndex = displayVal.split('').findIndex(c => operators.includes(c));
   const operator = displayVal[opIndex];
   const nums = displayVal.split(operator);
-  const num1 = parseInt(nums[0]);
-  const num2 = parseInt(nums[1]);
+  const num1 = parseFloat(nums[0]);
+  const num2 = parseFloat(nums[1]);
   
   const result = operate(num1, num2, operator);
   if(result % 1 !== 0) {
-    display.textContent = result.toFixed(11);
-  } 
-  else { 
+    //round to 11 decimal places and remove trailing zeroes
+    display.textContent = parseFloat(result.toFixed(11));
+  } else { 
   display.textContent = result;
   }
 }
