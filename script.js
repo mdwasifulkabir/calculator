@@ -46,15 +46,28 @@ const operatorContainer = document.querySelector("#operator-container");
 const display = document.querySelector("#display");
 
 numberContainer.addEventListener("click", (e) => {
+  if (display.textContent === "Nope") display.textContent = "";
+  
   const keyText = e.target.textContent;
   if (keyText === '.'){
-    if (display.textContent.includes('.')) return;
+    //check if there is an operator
+    const opIndex = display.textContent.split('').findIndex(c => operators.includes(c));
+    /*if there's no operator, dont let the user enter another decimal if one 
+    exists on the screen */
+    if (opIndex === -1) {
+      if (display.textContent.includes('.')) return;
+    //if there is an operator, extract the second number and check if it contains a decimal
+    } else {
+      const num2 = display.textContent.slice(opIndex);
+      if(num2.includes('.')) return;
+    }
   }
   display.textContent += keyText;
 });
 
 operatorContainer.addEventListener("click", (e) => {
   const keyText = e.target.textContent;
+  if (display.textContent === "Nope") display.textContent = "";
   
   switch(keyText) {
     case "Clear":
@@ -87,6 +100,10 @@ function calculate(displayVal) {
   const num1 = parseFloat(nums[0]);
   const num2 = parseFloat(nums[1]);
   
+  if (num2 == 0 && operator === '/') {
+    display.textContent = "Nope";
+    return;
+  }
   const result = operate(num1, num2, operator);
   if(result % 1 !== 0) {
     //round to 11 decimal places and remove trailing zeroes
