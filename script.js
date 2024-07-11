@@ -71,7 +71,7 @@ operatorContainer.addEventListener("click", (e) => {
   if (display.textContent === "Nope") display.textContent = "";
   
   switch(keyText) {
-    case "Clear":
+    case "AC":
       display.textContent = "";
       break;
 

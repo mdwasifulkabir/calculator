@@ -1,37 +1,51 @@
 body{
   display: flex;
   justify-content: center;
+  background-color: #FEFEFC;
 }
 
 #container {
+  background-color: #3D3D3D;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 2px black solid;
   border-radius: 5px;
-  height: 80vh;
+  height: 60vh;
   aspect-ratio: 2/3;
 }
 
 #display {
+  background-color: #FEFEFC;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 80%;
   height: 10%;
   margin-top: 40px;
-  font-size: 30px;
+  font-size: 20px;
   border: 2px black solid;
 }
 
 #button-container {
   display: flex;
-  flex: 1;
+  flex: 1 1 auto;
   align-items: center;
   gap: 50px;
 }
 
+.operators {
+  background-color: #5463CF;
+}
+
+.numbers {
+  background-color: #F96F5D;
+}
+
 button {
-  font-size: 20px;
+  font-size: 15px;
+  background-color: #FEFEFC;
+  border-radius: 10px;
   padding: 25px;
 }
 
