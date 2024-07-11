@@ -46,6 +46,7 @@ const operatorContainer = document.querySelector("#operator-container");
 const display = document.querySelector("#display");
 
 numberContainer.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("numbers")) return;
   if (display.textContent === "Nope") display.textContent = "";
   
   const keyText = e.target.textContent;

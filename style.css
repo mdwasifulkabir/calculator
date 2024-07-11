@@ -16,13 +16,16 @@ body{
 #display {
   display: flex;
   align-items: center;
-  flex: 1 1 auto;
+  width: 80%;
+  height: 10%;
+  margin-top: 40px;
   font-size: 30px;
+  border: 2px black solid;
 }
 
 #button-container {
   display: flex;
-  flex: 3;
+  flex: 1;
   align-items: center;
   gap: 50px;
 }
