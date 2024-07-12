@@ -18,7 +18,7 @@ body{
 }
 
 #display {
-  background-color: #FEFEFC;
+  background-color: #64696b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,6 +28,7 @@ body{
   font-size: 30px;
   border: 2px black solid;
   border-radius: 10px;
+  color: #FEFEFC;
 }
 
 /* controls spacing between cols of numbers */
@@ -40,7 +41,7 @@ button {
   font-size: 2vh;
   background-color: #FEFEFC;
   border-radius: 10px;
-  padding: 2vh 2.5vh;
+  padding: 2vh;
 }
 
 #button-container {
@@ -60,11 +61,6 @@ button {
 }
 
 #number-container {
-  display: flex;
-  flex-direction: column;
-}
-
-#operator-container {
   display: flex;
   flex-direction: column;
 }
